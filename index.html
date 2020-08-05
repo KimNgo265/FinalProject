@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Kim Ngo - Final Project</title>
+<link rel = "shortcut icon" type="images/ico" href = "images/favicon1.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+
+  .center {
+  text-align: center;
+}
+
+.footer {
+  display: inline-block;
+}
+
+.footer a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.footer a.active {
+  background-color: orange;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.footer a:hover:not(.active) {background-color: black;}
+
+/*Flip photos*/
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*make photos side by side*/
+* {
+  box-sizing: border-box;
+}
+* 
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*searching bar*/
+input[type=text] {
+  width: 100px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px;
+  transition: width 0.3s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 60%;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- Quotation -->
+<canvas id="myCanvas" width="1075" height="100">
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+ctx.font = "20px Georgia";
+
+ctx.font = "30px Verdana";
+
+
+var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+gradient.addColorStop("0.5", "magenta");
+gradient.addColorStop("0.2", "blue");
+gradient.addColorStop("1.0", "red");
+
+
+ctx.strokeStyle = gradient;
+ctx.strokeText("✔Make it as simple as possible, but not simpler...",333,60);
+</script> 
+
+<!-- Menu Bar -->
+  <div class="w3-bar w3-pink w3-card">
+    <a href="HOME" class="w3-bar-item w3-button w3-padding-large w3-medium w3-spin fa fa-home">HOME</a>
+    <a href="#DEALS" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DEALS</a>
+    <a href="#LISTS" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LISTS</a>
+    <a href="#SERVICE" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SERVICE</a>
+    
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
+
+           <!-- Dropdown -->
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">50% OFF</a>
+        <a href="#" class="w3-bar-item w3-button">New</a>
+        <a href="#" class="w3-bar-item w3-button">Special</a>
+        <a href="#" class="w3-bar-item w3-button">Coming Soon</a>
+      </div>
+    </div>
+    <!-- searching icon -->
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    <form>
+  <input type="text" name="search" placeholder="Hey!!! what are you looking for?" >
+</form>
+  </div>
+
+<!-- photos and buttons together-->
+<div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v1.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $40.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('Okay! Your Item Has Been Added')">Add</button><button class="w3-button w3-pink w3-round-xlarge"id="demo" onclick="myFunction()">Buy</button></p>
+</p>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
+</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v2.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $50.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('This Item Is Out Of Stock')">Add</button><button class="w3-button w3-pink w3-round-xlarge" disabled="Buy">Buy</button></p>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v3.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $60.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('Okay! Your Item Has Been Added')">Add</button><button class="w3-button w3-pink w3-round-xlarge">Buy</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v4.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $45.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('Sorry! I Do Not Want To Sell This Item')">Add</button><button class="w3-button w3-pink w3-round-xlarge" disabled="Buy">Buy</button></p>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+<div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v5.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $55.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('Added Successfully')">Add</button><button class="w3-button w3-pink w3-round-xlarge"id="demo" onclick="myFunction()">Buy</button></p>
+   </p>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
+}
+</script>
+
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+  <div class="row">
+  <div class="column">
+<div class="w3-padding flip-card w3-margin-top">
+  <div class="w3-third flip-card-inner">
+    <div class="w3-card flip-card-front">
+      <img src="v6.jpg" style="width:110%"> 
+    </div>
+    <div class="flip-card-back">
+        <p>
+          <h1> $65.00</h1>
+          <button class="w3-button w3-green w3-round-xlarge">Detail</button><button class="w3-button w3-yellow w3-round-xlarge" onclick="alert('This Item Is Not Available')">Add</button><button class="w3-button w3-pink w3-round-xlarge" disabled="Buy">Buy</button></p>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<!-- pagination -->
+<div class="center">
+  <div class="footer">
+  <a href="#">&laquo;</a>
+  <a href="#"class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">&raquo;</a>
+  </div>
+</div>
+
+<!-- background -->
+<style>
+body {
+ background: url(p2.gif);
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+</body>
+</html>
